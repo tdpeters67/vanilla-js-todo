@@ -2,7 +2,6 @@
   "name": "vanilla-js-todo",
   "version": "1.0.0",
   "description": "",
-  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack"
@@ -12,5 +11,8 @@
   "license": "ISC",
   "devDependencies": {
     "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "date-fns": "^2.30.0"
   }
 }

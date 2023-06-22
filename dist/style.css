@@ -64,6 +64,10 @@ form {
   padding: 0.25em;
 }
 
+.new.task {
+  margin-bottom: 0;
+}
+
 .new:focus {
   border-bottom-width: 3px;
 }
@@ -105,6 +109,7 @@ form {
 
 .todo-body {
   padding: var(--spacer);
+  position: relative;
 }
 
 [type="checkbox"] {
@@ -113,13 +118,13 @@ form {
 }
 
 .task label {
-  display: flex;
+  display: flex-inline;
   align-items: center;
   position: relative;
-  margin-bottom: 1.5em;
 }
 .task {
   position: relative;
+  margin-bottom: 1em;
 }
 .task::after {
   content: "";
@@ -160,7 +165,35 @@ form {
   opacity: 0.5;
 }
 
-.delete-task {
+.task label::after {
+  content: "";
+  position: absolute;
+  left: 1.5em;
+  right: -0.5em;
+  top: 55%;
+  height: 3px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 150ms ease-in-out;
+}
+[type="checkbox"]:checked + label::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.manipulate-task {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: -50px;
+}
+
+.priority-text {
+  color: red;
+}
+.priority-header {
+  background-color: red;
 }
