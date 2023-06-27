@@ -61,15 +61,9 @@ const prioritizeListBtn = document.querySelector(
 
 prioritizeListBtn.addEventListener("click", (e) => {
   const selectedList = lists.find((list) => list.id === selectedListId);
-  console.log(selectedListId);
-  console.log(selectedList);
   if (selectedList.priority == false) {
     selectedList.priority = true;
-    document.querySelector(".todo-header").classList.add("priority-header");
-    document.querySelector(".active-list").classList.add("priority-text");
   } else if (selectedList.priority == true) {
     selectedList.priority = false;
-    document.querySelector(".todo-header").classList.remove("priority-header");
-    document.querySelector(".active-list").classList.remove("priority-text");
   }
 });

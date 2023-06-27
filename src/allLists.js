@@ -12,6 +12,8 @@ export let lists =
 
 export let selectedListId = localStorage.getItem(LOCAL_STORAGE_LIST_ID_KEY);
 
+const toDoHeader = document.querySelector("todo-header");
+
 export function renderLists() {
   lists.forEach((list) => {
     const listElement = document.createElement("li");
@@ -28,6 +30,16 @@ export function renderLists() {
 listsContainer.addEventListener("click", (e) => {
   if (e.target.tagName.toLowerCase() === "li") {
     selectedListId = e.target.dataset.listId;
+    const selectedList = lists.find((list) => list.id === selectedListId);
+    if (selectedList.priority == true) {
+      document.querySelector(".todo-header").classList.add("priority-header");
+    } else {
+      document
+        .querySelector(".todo-header")
+        .classList.remove("priority-header");
+    }
+    console.log(selectedList);
+
     saveAndRender();
   }
 });
